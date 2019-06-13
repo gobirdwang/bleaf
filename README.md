@@ -1,5 +1,5 @@
  [TOC] 
-# BLeaf 一个Vue地图可视化工程
+# bleaf 一个Vue地图可视化工程
 ## 需要具备的知识：
 Vue、Vuex、Arcgis for Javascript、ES6+
 ## 构建Vue项目
@@ -60,7 +60,7 @@ Vue、Vuex、Arcgis for Javascript、ES6+
  * 将esri的API进行定义，并放入state中，后续用到的地方引用一下getters即可；
 
  ## 参考文档
- [Vue.js介绍](https://cn.vuejs.org/v2/guide/index.html)
- [Vuex官方介绍](https://vuex.vuejs.org/zh/)
- [Vuex学习总结](https://www.cnblogs.com/libin-1/p/6518902.html)
- [ES2015简介和基本语法](https://www.jianshu.com/p/220a54f7adce)
+[Vue.js介绍](https://cn.vuejs.org/v2/guide/index.html)  
+[Vuex官方介绍](https://vuex.vuejs.org/zh/)  
+[Vuex学习总结](https://www.cnblogs.com/libin-1/p/6518902.html)  
+[ES2015简介和基本语法](https://www.jianshu.com/p/220a54f7adce)
