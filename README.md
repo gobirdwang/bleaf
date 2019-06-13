@@ -12,6 +12,8 @@ Vue、Vuex、Arcgis for Javascript、ES6+
  2.isLoaded()检验模块是否加载完成;  
  3.loadModules([],options)用于加载arcgis模块;  
  4.loadCss(url)用于加载css文件; 
+
+ 
  5.loadScript({url:**})将js加载到页面上；
  ## 一个最简单的例子
  ``` html
