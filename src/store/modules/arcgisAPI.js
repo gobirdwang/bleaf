@@ -1,5 +1,5 @@
 import esriloader from 'esri-loader'
-// 通过vuex控制arcgis_js的加载，注意，initAPI需要在初始化时候加载
+
 const arcgisAPI = {
   state: {
     esri: {
@@ -22,6 +22,9 @@ const arcgisAPI = {
         })
       })
     }
+  },
+  getters: {
+    map: state => state.esri.map
   }
 }
 export default arcgisAPI
