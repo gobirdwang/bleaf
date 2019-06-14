@@ -7,7 +7,7 @@ esri-loader是用来加载Esri官方开源，arcgisAPI的小工具。原本的�
 
 使用命令`npm i esri-loader --save-dev`来安装。  
 
-**esri-loader有以下几个方法：**
+**esri-loader有以下几个方法：**  
 1.getScript()从库里面获取js文件;  
 2.isLoaded()检验模块是否加载完成;  
 3.loadModules([],options)用于加载arcgis模块;  
@@ -67,6 +67,7 @@ require(['esri/map'],function(Map){do somthing...})
 
 为解决这些个问题，我们使用esri-loader结合Vuex来简化API的使用，实现初始化后，随时随地随意使用的目的。
 **代码目录**
+```
   src
   ┣ store
   ┃ ┣ modules
@@ -74,6 +75,7 @@ require(['esri/map'],function(Map){do somthing...})
   ┗ ┗ index.js 集成所有store模块，完成arcgis api的初始化
   ┣ App.vue
   ┗ main.js 引入store
+  ```
 其中：
 modules为store的模块，防止store变的臃肿，store可能包含多个模块，通过index.js做整合。
 store中的代码如下所示：
