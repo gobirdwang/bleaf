@@ -7,7 +7,7 @@ esri-loader是用来加载Esri官方开源，arcgisAPI的小工具。原本的�
 
 使用命令`npm i esri-loader --save-dev`来安装。  
 
-**esri-loader有以下几个方法：**  
+**esri-loader有以下几个方法：** 
 1.getScript()从库里面获取js文件;  
 2.isLoaded()检验模块是否加载完成;  
 3.loadModules([],options)用于加载arcgis模块;  
@@ -65,7 +65,7 @@ require(['esri/map'],function(Map){do somthing...})
 * 使用不便，代码量大，阅读也不方便；
 * 功能重复定义，同一个模块可能被load多次。  
 
-为解决这些个问题，我们使用esri-loader结合Vuex来简化API的使用，实现初始化后，随时随地随意使用的目的。
+为解决这些个问题，我们使用esri-loader结合Vuex来简化API的使用，实现初始化后，随时随地随意使用的目的。  
 **代码目录**
 ```
   src
@@ -112,7 +112,7 @@ const arcgisAPI = {
 export default arcgisAPI
 ```
 在`index.js`中，调用了initAPI完成esri-loader的初始化，最终，我们实现了：
-* 更方便的API调；  
+* 更方便的API调用；  
 * 防止esri功能的重复定义。在页面初始化时，将用到的module加载进来，以后调用时不用反复的通过esri进行调用，可以直接在Vuex中拿出；  
 * 使用getters，简化了代码（原：this.$store.arcgisAI.state.esri.map，现：this.map）；  
 
