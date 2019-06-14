@@ -119,7 +119,7 @@ export default arcgisAPI
 **基础知识：**  
 [Vue.js介绍](https://cn.vuejs.org/v2/guide/index.html)  
 [Vuex官方介绍](https://vuex.vuejs.org/zh/)  
-[ES2015简介和基本语法](https://www.jianshu.com/p/220a54f7adce)
+[ES2015简介和基本语法](https://www.jianshu.com/p/220a54f7adce)  
 **进阶：**  
 [使用脚手架创建项目](https://blog.csdn.net/inthuixiang/article/details/82225407)  
 [Vuex项目目录](https://vuex.vuejs.org/zh/guide/structure.html)  
