@@ -6,7 +6,6 @@ import esriloader from 'esri-loader'
 import {mapGetters} from 'vuex'
 export default {
 	mounted:function(){
-    debugger
     let map = new this.map("map",{
       basemap: "topo",
       center: [-116.093, 34.218],
@@ -23,8 +22,4 @@ export default {
 </script>
 
 <style scoped>
-#map{
-    height: 100%;
-    width: 100%;
-    }
 </style>
