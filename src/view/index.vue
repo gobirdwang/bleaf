@@ -18,8 +18,10 @@ export default {
   width: 100%;
 }
 .com-map{
-  height: calc(100% - 50px);
-  width: calc(100% - 100px);
+  /* height: calc(100% - 50px);
+  width: calc(100% - 100px); */
+  height: 100%;
+  width: 100%;
   position: absolute;
   right: 0px;
   bottom: 0px;
