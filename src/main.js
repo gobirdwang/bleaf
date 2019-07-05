@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+store.dispatch('initAPI')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

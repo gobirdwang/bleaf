@@ -2,19 +2,23 @@
 	<div id="map"></div>
 </template>
 <script>
-import esriloader from 'esri-loader'
+// import esriloader from 'esri-loader'
 import {mapGetters} from 'vuex'
+import {conf} from './conf.js'
 export default {
   data(){
     return {
       mapControl:null,
       watchId:null,
-      graphicLayer:null
+      graphicLayer:null,
+      conf,
     }
   },
 	mounted(){
+    // 初始化api，成功后进行地图操作
     this.mapControl = new this.map("map",{ 
       basemap: "topo",
+      logo:false,
       center: [-116.093, 34.218],
       zoom: 7
     });
@@ -39,7 +43,6 @@ export default {
      * 处理定位的错误
      */
     locationError(error){
-      debugger
       if( navigator.geolocation ) {
         navigator.geolocation.clearWatch(this.watchId);
       }
@@ -65,7 +68,6 @@ export default {
      * 缩放到定位点
      */
     zoomToLocation(location) {
-      debugger
       var pt = new this.Point(location.coords.longitude, location.coords.latitude);
       this.addGraphic(pt);
       this.mapControl.centerAndZoom(pt, 15);
@@ -86,16 +88,7 @@ export default {
      * 添加定位点
      */  
     addGraphic(pt) {
-      var symbol = new this.SimpleMarkerSymbol(
-        this.SimpleMarkerSymbol.STYLE_CIRCLE, 
-        12, 
-        new this.SimpleLineSymbol(
-          this.SimpleLineSymbol.STYLE_SOLID,
-          new this.Color([210, 105, 30, 0.5]), 
-          8
-        ), 
-        new this.Color([210, 105, 30, 0.9])
-      );
+      var symbol = this.conf.pointStyle.location();
       this.graphicLayer = new this.graphic(pt, symbol);
       this.mapControl.graphics.add(this.graphicLayer);
     }
