@@ -36,6 +36,7 @@ const arcgisAPI = {
     }
   },
   actions: {
+    // 将整个API进行初始化，然后扔到store里，不用多次加载，方便使用
     initAPI ({commit}) {
       return new Promise((resolve) => {
         esriloader.loadScript({url: process.env.ARCGIS_API + 'init.js'})

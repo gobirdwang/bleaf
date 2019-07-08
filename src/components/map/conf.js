@@ -1,7 +1,7 @@
 /**
  * 与地图有关的配置都写在这里，实现了地图业务的分离
  */
-export const conf = {
+const conf = {
   // 空间参考
   spaticalReference: 4326,
   map: null,
@@ -22,3 +22,4 @@ export const conf = {
 
   }
 }
+export default conf
