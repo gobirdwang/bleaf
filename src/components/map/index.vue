@@ -3,8 +3,6 @@
 </template>
 <script>
 import {mapGetters} from 'vuex'
-// 地图配置文件
-import {conf} from './conf.js'
 // 定位功能
 import {location} from './function/location'
 export default {
@@ -12,8 +10,7 @@ export default {
     return {
       mapControl:null,
       watchId:null,
-      graphicLayer:null,
-      conf,
+      graphicLayer:null
     }
   },
 	mounted(){

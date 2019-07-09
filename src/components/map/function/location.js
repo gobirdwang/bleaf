@@ -4,6 +4,8 @@
  * 2、调用定位：this.mapControl.on("load",location(this.mapControl))其中this.mapControl是地图
  */
 import conf from '../conf'
+import {wktPointToGraphic} from './graphic'
+
 let watchId = null
 let graphicLayer = null
 let mapControl = null
@@ -62,7 +64,8 @@ export function locationError (error) {
  */
 export function zoomToLocation (location) {
   let pt = new esri.geometry.Point(location.coords.longitude, location.coords.latitude)
-  addGraphic(pt)
+  // addGraphic(pt)
+  wktPointToGraphic(mapControl, [location.coords.longitude, location.coords.latitude], conf.pointStyle.location(), '')
   mapControl.centerAndZoom(pt, 15)
 }
 /**
@@ -72,19 +75,11 @@ export function zoomToLocation (location) {
 export function showLocation (location) {
   var pt = new esri.geometry.Point(location.coords.longitude, location.coords.latitude)
   if (!graphicLayer) {
-    addGraphic(pt)
+    // addGraphic(pt)
+    wktPointToGraphic(mapControl, [location.coords.longitude, location.coords.latitude], conf.pointStyle.location(), '')
   } else { // move the graphic if it already exists
     graphicLayer.setGeometry(pt)
   }
   mapControl.centerAt(pt)
-}
-/**
- * 添加到地图上
- * @param {位置} pt
- */
-export function addGraphic (pt) {
-  let symbol = conf.pointStyle.location()
-  graphicLayer = new esri.Graphic(pt, symbol)
-  mapControl.graphics.add(graphicLayer)
 }
 

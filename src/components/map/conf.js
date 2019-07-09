@@ -3,7 +3,9 @@
  */
 const conf = {
   // 空间参考
-  spaticalReference: 4326,
+  spaticalReference: () =>{
+    return new esri.SpaticalReference({wlid: 4326})
+  },
   map: null,
   graphics: null,
   // 点的样式，避免了过于冗长的代码
