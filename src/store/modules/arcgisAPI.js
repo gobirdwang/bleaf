@@ -8,6 +8,9 @@ const arcgisAPI = {
         Point: null
       },
       graphic: null,
+      layers: {
+        ArcGISDynamicMapServiceLayer: null
+      },
       map: null,
       symbols: {
         SimpleLineSymbol: null,
@@ -24,6 +27,9 @@ const arcgisAPI = {
     },
     setGraphic: (state, graphic) => {
       state.esri.graphic = graphic
+    },
+    setArcGISDynamicMapServiceLayer: (state, ArcGISDynamicMapServiceLayer) => {
+      state.esri.layers.ArcGISDynamicMapServiceLayer = ArcGISDynamicMapServiceLayer
     },
     setMap: (state, map) => {
       state.esri.map = map
@@ -45,6 +51,7 @@ const arcgisAPI = {
           'esri/Color',
           'esri/geometry/Point',
           'esri/graphic',
+          'esri/layers/ArcGISDynamicMapServiceLayer',
           'esri/map',
           'esri/symbols/SimpleLineSymbol',
           'esri/symbols/SimpleMarkerSymbol'
@@ -52,6 +59,7 @@ const arcgisAPI = {
           Color,
           Point,
           graphic,
+          ArcGISDynamicMapServiceLayer,
           map,
           SimpleLineSymbol,
           SimpleMarkerSymbol
@@ -59,6 +67,7 @@ const arcgisAPI = {
           commit('setColor', Color)
           commit('setPoint', Point)
           commit('setGraphic', graphic)
+          commit('setArcGISDynamicMapServiceLayer', ArcGISDynamicMapServiceLayer)
           commit('setMap', map)
           commit('setSimpleLineSymbol', SimpleLineSymbol)
           commit('setSimpleMarkerSymbol', SimpleMarkerSymbol)
@@ -71,6 +80,7 @@ const arcgisAPI = {
     Color: state => state.esri.Color,
     Point: state => state.esri.geometry.Point,
     graphic: state => state.esri.graphic,
+    ArcGISDynamicMapServiceLayer: state => state.esri.layers.ArcGISDynamicMapServiceLayer,
     map: state => state.esri.map,
     SimpleLineSymbol: state => state.esri.symbols.SimpleLineSymbol,
     SimpleMarkerSymbol: state => state.esri.symbols.SimpleMarkerSymbol

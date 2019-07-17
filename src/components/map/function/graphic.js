@@ -7,7 +7,6 @@
  * @param {空间参考} spatialReference 
  */
 export function wktPointToGraphic (mapControl, cord, style, spatialReference) {
-  debugger
   let point = new esri.geometry.Point(cord, spatialReference)
   let pointLyr = new esri.Graphic(point, style)
   mapControl.graphics.add(pointLyr)

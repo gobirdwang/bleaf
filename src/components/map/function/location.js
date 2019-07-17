@@ -63,6 +63,7 @@ export function locationError (error) {
  * @param {定位点的位置} location
  */
 export function zoomToLocation (location) {
+  // let pt = new esri.geometry.Point(108.4, 22.5)
   let pt = new esri.geometry.Point(location.coords.longitude, location.coords.latitude)
   // addGraphic(pt)
   wktPointToGraphic(mapControl, [location.coords.longitude, location.coords.latitude], conf.pointStyle.location(), '')
@@ -73,7 +74,8 @@ export function zoomToLocation (location) {
  * @param {位置} location
  */
 export function showLocation (location) {
-  var pt = new esri.geometry.Point(location.coords.longitude, location.coords.latitude)
+  let pt = new esri.geometry.Point(108.4, 22.5)
+  // let pt = new esri.geometry.Point(location.coords.longitude, location.coords.latitude)
   if (!graphicLayer) {
     // addGraphic(pt)
     wktPointToGraphic(mapControl, [location.coords.longitude, location.coords.latitude], conf.pointStyle.location(), '')

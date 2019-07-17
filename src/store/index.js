@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import arcgisAPI from './modules/arcgisAPI'
+import mapState from './modules/map'
 import router from '@/router'
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
-    arcgisAPI
+    arcgisAPI,
+    mapState
   }
 })
 

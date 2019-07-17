@@ -4,7 +4,7 @@
 const conf = {
   // 空间参考
   spaticalReference: () =>{
-    return new esri.SpaticalReference({wlid: 4326})
+    return new esri.SpaticalReference({wlid: 102110})
   },
   map: null,
   graphics: null,
