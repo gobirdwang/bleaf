@@ -1,7 +1,7 @@
 <template>
   <div id="test">
-    <mapComponent class="com-map" id="com-map" @updataZoom='pupdataZoom' @updateCenter='pupdateC' zoom='zoom' center='center' mapId='com-map'></mapComponent>
-    <mapComponent class="com-map1" id="com-map1d" @updataZoom='pupdataZoom' @updateCenter='pupdateC' zoom='zoom' center='center'  mapId='com-map1'></mapComponent>
+    <mapComponent class="com-map" id="com-map" :zoom='getZoom' :center='getCenter' :mapId='"com-map"'></mapComponent>
+    <mapComponent class="com-map1" id="com-map1" :zoom='getZoom' :center='getCenter'  :mapId='"com-map1"'></mapComponent>
   </div>
 </template>
 <script>
@@ -9,19 +9,17 @@ import mapComponent from '@/components/map'
 export default {
   data(){
     return{
-      center:null,
-      zoom:null
     }
   },
   methods:{
-    pupdataZoom(data){
-      debugger
-      this.zoom = data
+  },
+  computed:{
+    getCenter(){
+      return this.$store.state.mapState.center
     },
-    pupdateC(data){
-      debugger
-      this.center = data
-    }
+    getZoom(){
+      return this.$store.state.mapState.zoom
+    },
   },
   components:{
     mapComponent
