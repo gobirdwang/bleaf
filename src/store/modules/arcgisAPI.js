@@ -9,7 +9,9 @@ const arcgisAPI = {
       },
       graphic: null,
       layers: {
-        ArcGISDynamicMapServiceLayer: null
+        ArcGISDynamicMapServiceLayer: null,
+        ArcGISTiledMapServiceLayer: null,
+        FeatureLayer: null
       },
       map: null,
       symbols: {
@@ -30,6 +32,12 @@ const arcgisAPI = {
     },
     setArcGISDynamicMapServiceLayer: (state, ArcGISDynamicMapServiceLayer) => {
       state.esri.layers.ArcGISDynamicMapServiceLayer = ArcGISDynamicMapServiceLayer
+    },
+    setArcGISTiledMapServiceLayer: (state, ArcGISTiledMapServiceLayer) => {
+      state.esri.layers.ArcGISTiledMapServiceLayer = ArcGISTiledMapServiceLayer
+    },
+    setFeatureLayer: (state, FeatureLayer) => {
+      state.esri.layers.FeatureLayer = FeatureLayer
     },
     setMap: (state, map) => {
       state.esri.map = map
@@ -52,6 +60,8 @@ const arcgisAPI = {
           'esri/geometry/Point',
           'esri/graphic',
           'esri/layers/ArcGISDynamicMapServiceLayer',
+          'esri/layers/ArcGISTiledMapServiceLayer',
+          'esri/layers/FeatureLayer',
           'esri/map',
           'esri/symbols/SimpleLineSymbol',
           'esri/symbols/SimpleMarkerSymbol'
@@ -60,6 +70,8 @@ const arcgisAPI = {
           Point,
           graphic,
           ArcGISDynamicMapServiceLayer,
+          ArcGISTiledMapServiceLayer,
+          FeatureLayer,
           map,
           SimpleLineSymbol,
           SimpleMarkerSymbol
@@ -68,6 +80,8 @@ const arcgisAPI = {
           commit('setPoint', Point)
           commit('setGraphic', graphic)
           commit('setArcGISDynamicMapServiceLayer', ArcGISDynamicMapServiceLayer)
+          commit('setArcGISTiledMapServiceLayer', ArcGISTiledMapServiceLayer)
+          commit('setFeatureLayer', FeatureLayer)
           commit('setMap', map)
           commit('setSimpleLineSymbol', SimpleLineSymbol)
           commit('setSimpleMarkerSymbol', SimpleMarkerSymbol)
@@ -81,6 +95,8 @@ const arcgisAPI = {
     Point: state => state.esri.geometry.Point,
     graphic: state => state.esri.graphic,
     ArcGISDynamicMapServiceLayer: state => state.esri.layers.ArcGISDynamicMapServiceLayer,
+    ArcGISTiledMapServiceLayer: state => state.esri.layers.ArcGISTiledMapServiceLayer,
+    FeatureLayer: state => state.esri.layers.FeatureLayer,
     map: state => state.esri.map,
     SimpleLineSymbol: state => state.esri.symbols.SimpleLineSymbol,
     SimpleMarkerSymbol: state => state.esri.symbols.SimpleMarkerSymbol

@@ -5,8 +5,6 @@
  * @param {地图} mapControl 
  */
 export function addServiceLayer (url, type, mapControl, options) {
-  url = 'http://10.10.50.67:6080/arcgis/rest/services/GDJTGHT/MapServer'
-  type = 'Dynamic'
   if (type === 'Dynamic') {
     let dynamicLayer = new esri.layers.ArcGISDynamicMapServiceLayer(url, options)
     mapControl.addLayer(dynamicLayer)
@@ -17,11 +15,20 @@ export function addServiceLayer (url, type, mapControl, options) {
     return tiledLayer
   }
 }
-
-export function addGraphicLayer() {
-
+/**
+ * 添加要素图层，并绑定点击事件
+ * @param {地图} mapControl 
+ * @param {图层url} url 
+ * @param {选项} options 
+ * @param {单击操作，如绑定点击事件等} operation 
+ */
+export function addFeatureLayer (mapControl, url, options, operation) {
+  let featureLayer = new esri.layers.FeatureLayer(url, options)
+  featureLayer.on('click', operation)
+  mapControl.addLayer(featureLayer)
+  return featureLayer
 }
 
-export function addFeatureLayer() {
+export function addGraphicLayer() {
 
 }
