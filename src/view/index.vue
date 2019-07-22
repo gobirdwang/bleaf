@@ -1,7 +1,8 @@
 <template>
   <div id="test">
-    <mapComponent class="com-map" id="com-map" :zoom='getZoom' :center='getCenter' :mapId='"com-map"'></mapComponent>
-    <mapComponent class="com-map1" id="com-map1" :zoom='getZoom' :center='getCenter'  :mapId='"com-map1"'></mapComponent>
+    <mapComponent ref = 'imgWrapper' class="com-map" id="com-map" :zoom='getZoom' :center='getCenter' :mapId='"com-map"'></mapComponent>
+    <mapComponent ref = 'imgWrapper1' class="com-map1" id="com-map1" :zoom='getZoom' :center='getCenter'  :mapId='"com-map1"'></mapComponent>
+    <button ref = 'imgWrapper2' class='m-buttom' @click='screenShot' >anniu</button>  
   </div>
 </template>
 <script>
@@ -12,6 +13,9 @@ export default {
     }
   },
   methods:{
+    screenShot(){
+      this.$utils.tools.exportImg(document.getElementById('com-map'))
+    }
   },
   computed:{
     getCenter(){
@@ -50,6 +54,11 @@ export default {
   left: 0px;
   bottom: 0px;
   border: 1px solid;
+}
+.m-buttom{
+  float: left;
+    z-index: 9999999;
+    position: absolute;
 }
 </style>
 

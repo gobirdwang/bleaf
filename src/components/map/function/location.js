@@ -21,7 +21,7 @@ export function orientationChanged (map) {
 }
 /**
  * 定位功能初始化
- * @param {地图} map 
+ * @param {地图} map
  */
 export function location (map) {
   mapControl = map
@@ -84,4 +84,3 @@ export function showLocation (location) {
   }
   mapControl.centerAt(pt)
 }
-
