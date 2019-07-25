@@ -6,11 +6,13 @@ import fileSaver from 'file-saver'
  */
 const exportImg = (dom) => {
   html2Canvas(dom, {
+    // 处理地图上跨域的图片
     useCORS: true
   }).then((canvas) => {
     canvas.toDataURL('image/png')
+    // 转换后，用saver插件进行导出
     canvas.toBlob((blob) => {
-      fileSaver(blob, 'saveImage.png')
+      fileSaver(blob, '图片导出.png')
     })
   })
 }

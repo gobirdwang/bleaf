@@ -14,7 +14,6 @@
 ## 地图详解
 如果把地图作为一个类来处理，属性和方法包括什么？
 
-
 ## 参考
 [arcgis api与echarts3结合](https://github.com/wandergis/arcgis-echarts3)
 [canvas数据可视化](https://github.com/chengquan223/map-canvas)

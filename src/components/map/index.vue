@@ -7,7 +7,9 @@ import {mapGetters} from 'vuex'
 import {location} from './function/location'
 // 加载地图服务
 import {addServiceLayer,addFeatureLayer} from './function/layer'
-// 地图相关的st
+// 底图
+import {basemap} from './function/baseMap'
+import {xyPointToGraphic} from './function/graphic'
 export default {
   props:{
     // 初始化地图的id
@@ -15,11 +17,12 @@ export default {
       type: String,
       default: ''
     },
+    // 底图，数组类型，默认为topo，通过类型加以判断
     baseMap: {
       type: String,
       default: 'topo'
     }, 
-    // 地图中心点坐标
+    // 地图中心点坐标,arcgis的Point类型
     center: {
       type: Object,
       default: {
@@ -39,15 +42,33 @@ export default {
     }
   },
 	mounted(){
+    let x = basemap()
+    
     // 初始化地图，成功后进行地图操作
     if(this.mapId){
       this.mapC = new this.map(this.mapId,{ 
-        basemap: this.baseMap,
-        logo:false,
-        center: [108.4, 22.79],
-        zoom: 12
+        logo: false,
+        slider: false,
+        nav: false,
+        showLabels: true, //非常重要；显示标注用
+        extent: new this.Extent({
+            xmin: 118.25,
+            ymin: 35.1,
+            xmax: 118.3,
+            ymax: 35.2,
+            spatialReference: {
+              wkid: 4326
+            }
+        })
       });
     }
+    // debugger
+     this.mapC.addLayer(x)
+     xyPointToGraphic(this.mapC, -81.3765, 28.54175,4326)
+     debugger
+     this.mapC.on("click", function(ev) {
+       debugger
+    });
     //定位功能的使用
     //this.mapC.on("load",location(this.mapC));
     //添加动态图层或者贴片图层
@@ -78,7 +99,7 @@ export default {
     }
   },
   watch:{
-    //监听map的四至范围和缩放，传值到vuex
+    // 监听map的四至范围和缩放，传值到vuex
     'mapC.extent': {
       handler(newVal, oldVal) {
         //传值到store中
@@ -107,7 +128,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'Color','Point','graphic','ArcGISDynamicMapServiceLayer','map','SimpleLineSymbol','SimpleMarkerSymbol','mapControl','FeatureLayer'
+      'Color','Point','graphic','ArcGISDynamicMapServiceLayer','map','SimpleLineSymbol','SimpleMarkerSymbol','mapControl','FeatureLayer','Extent'
     ]),
 
   }
